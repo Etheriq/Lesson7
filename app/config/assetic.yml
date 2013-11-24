@@ -1,0 +1,34 @@
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    bundles:        [ EtheriqLessonBundle ]
+    java:           /usr/bin/java
+    filters:
+        cssrewrite: ~
+        yui_css:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+        yui_js:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+    assets:
+        css_bootstrap:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.css
+            filters:
+                - cssrewrite
+                - yui_css
+            output:
+                 css/bootstrap.css
+        javascripts_jquery:
+            inputs:
+                - %kernel.root_dir%/../vendor/components/jquery/jquery.js
+            filters:
+                - yui_js
+            output:
+                 js/jquery.js
+        javascript_bootstrap:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js
+            filters:
+                - yui_js
+            output:
+                 js/bootstrap.js

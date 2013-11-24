@@ -1,0 +1,4 @@
+etheriq_lesson:
+    resource: "@EtheriqLessonBundle/Resources/config/routing.yml"
+    prefix:   /
+

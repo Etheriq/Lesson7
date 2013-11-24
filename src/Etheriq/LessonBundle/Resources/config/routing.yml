@@ -1,0 +1,3 @@
+etheriq_homepage:
+    pattern:  /
+    defaults: { _controller: EtheriqLessonBundle:Main:showHomePage }
