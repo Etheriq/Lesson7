@@ -5,11 +5,35 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="my_service">Etheriq\LessonBundle\Service\myService</parameter>
+        <parameter key="my_service1">Etheriq\LessonBundle\Service\MyService</parameter>
+        <parameter key="my_service1.param1">YuriyX</parameter>
+        <parameter key="my_service1.param2">TarnavskiyX</parameter>
+        <parameter key="my_finder">Etheriq\LessonBundle\Service\MyFinder</parameter>
+        <parameter key="my_finder.name">*</parameter>
+        <parameter key="my_finder.depth">0</parameter>
+        <parameter key="my_finder.size">&lt; 10K</parameter>
+        <parameter key="my_finder.inDir">/var/www/les7/src/Etheriq/LessonBundle/Resources/views</parameter>
+
     </parameters>
 
     <services>
-        <service id="myFirstService" class="%my_service%">
+        <service id="mySimplyService" class="%my_service1%">
+            <argument >%my_service1.param1%</argument>
+            <argument>%my_service1.param2%</argument>
+        </service>
+
+        <service id="finder" class="Symfony\Component\Finder\Finder">
+        </service>
+
+        <service id="myFinder" class="%my_finder%">
+            <argument>%my_finder.name%</argument>
+            <argument>%my_finder.depth%</argument>
+            <argument>%my_finder.size%</argument>
+            <argument>%my_finder.inDir%</argument>
+            <call method="initFinder">
+                <argument type="service" id="finder" />
+            </call>
+
         </service>
     </services>
 

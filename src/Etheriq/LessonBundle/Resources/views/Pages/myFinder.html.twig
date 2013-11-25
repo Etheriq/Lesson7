@@ -1,0 +1,22 @@
+{% extends 'EtheriqLessonBundle::base.html.twig' %}
+
+{% block title %}
+    service MyFinder
+{% endblock title %}
+
+{% block content %}
+
+    <div class="well">
+
+        <h4>Содержимое директории:</h4>{{ findPath }}<hr>
+        <ol>
+
+        {% for item in findData %}
+                <li>{{ item }}</li>
+        {% endfor %}
+
+        </ol>
+
+    </div>
+
+{% endblock content %}

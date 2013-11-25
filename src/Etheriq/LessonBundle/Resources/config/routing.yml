@@ -1,3 +1,11 @@
 etheriq_homepage:
     pattern:  /
     defaults: { _controller: EtheriqLessonBundle:Main:showHomePage }
+
+etheriq_service1:
+    pattern:  /srv1
+    defaults: { _controller: EtheriqLessonBundle:Main:srvMyService1 }
+
+etheriq_service2:
+    pattern:  /srv2
+    defaults: { _controller: EtheriqLessonBundle:Main:srvMyFinder }
