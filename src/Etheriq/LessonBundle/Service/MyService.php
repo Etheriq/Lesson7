@@ -55,6 +55,6 @@ class MyService
 
     public function showInfo()
     {
-        return "My name is ".$this->getName()." and surname = ".$this->getSurname();
+        return "My name is ".$this->getName()." and surname is ".$this->getSurname();
     }
 } 

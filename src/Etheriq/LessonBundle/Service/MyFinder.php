@@ -19,8 +19,9 @@ class MyFinder
     protected $inDir;
     protected $finder;
 
-    public function __construct($name, $depth, $size, $inDir)
+    public function __construct(Finder $finder, $name, $depth, $size, $inDir)
     {
+        $this->finder = $finder;
         $this->name = $name;
         $this->depth = $depth;
         $this->size = $size;
@@ -91,14 +92,9 @@ class MyFinder
         return $this->size;
     }
 
-    public function initFinder()
-    {
-        $this->finder = new Finder();
-    }
-
     public function showResult()
     {
-        return $text = $this->finder->name($this->getName())->depth($this->getDepth())->size($this->getSize())->in($this->getInDir());
+        return $text = $this->finder->sortByType()->name($this->getName())->depth($this->getDepth())->size($this->getSize())->in($this->getInDir());
     }
 
 } 

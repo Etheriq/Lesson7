@@ -1,0 +1,24 @@
+{% extends 'EtheriqLessonBundle::base.html.twig' %}
+
+{% block title %}
+    Result sending mail
+{% endblock title %}
+
+{% block content %}
+
+    <div class="well">
+
+        {% if status == 1 %}
+            <div class="alert alert-success">
+                <p>Почта для {{ mailTo }} успешно отправлена.</p>
+            </div>
+        {% else %}
+            <div class="alert alert-danger">
+                <p>Почта для не отправлена.</p>
+            </div>
+        {% endif %}
+
+
+    </div>
+
+{% endblock content %}

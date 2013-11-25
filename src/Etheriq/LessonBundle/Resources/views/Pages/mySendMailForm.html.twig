@@ -1,0 +1,33 @@
+{% extends 'EtheriqLessonBundle::base.html.twig' %}
+
+{% block title %}
+    service send Mail
+{% endblock title %}
+
+{% block content %}
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <center><h4>Форма отправки e-mail</h4></center>
+                <form name="mail_sent" action="{{ path('etheriq_service4') }}" method="post" role="form">
+                    <div class="form-group">
+                        <input type="text" name="sentTo" placeholder="enter e-mail address" class="form-control">
+                    </div>
+                   <div class="form-group">
+                        <input type="text" name="sentSubject" placeholder="enter e-mail subject" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="7" placeholder="enter text massage" class="form-control" name="bodyMessage"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4 form-group">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+        </div>
+    </div>
+
+{% endblock content %}

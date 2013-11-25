@@ -9,3 +9,11 @@ etheriq_service1:
 etheriq_service2:
     pattern:  /srv2
     defaults: { _controller: EtheriqLessonBundle:Main:srvMyFinder }
+
+etheriq_service3:
+    pattern:  /mail
+    defaults: { _controller: EtheriqLessonBundle:Main:showFormMailSend }
+
+etheriq_service4:
+    pattern:  /sendMail
+    defaults: { _controller: EtheriqLessonBundle:Main:mailSender }
