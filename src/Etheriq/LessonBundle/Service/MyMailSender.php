@@ -82,8 +82,6 @@ class MyMailSender
         return $this->textMessage;
     }
 
-
-
     public function initMailer(\Swift_Mailer $mailer)
     {
         $this->mailer = $mailer;
@@ -107,5 +105,4 @@ class MyMailSender
 
         $this->mailer->send($message);
     }
-
-} 
+}

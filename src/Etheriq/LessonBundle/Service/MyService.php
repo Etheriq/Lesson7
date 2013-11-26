@@ -9,7 +9,6 @@
 
 namespace Etheriq\LessonBundle\Service;
 
-
 class MyService
 {
     protected $name;
