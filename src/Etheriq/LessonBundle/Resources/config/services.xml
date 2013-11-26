@@ -15,7 +15,10 @@
         <parameter key="my_finder.name">*</parameter>
         <parameter key="my_finder.depth">0</parameter>
         <parameter key="my_finder.size">&lt; 10K</parameter>
-        <parameter key="my_finder.inDir">/var/wwwGeek/les7/src/Etheriq/LessonBundle/Resources/views</parameter>
+        <parameter key="my_finder.inDir">/var/www</parameter>
+
+        <parameter key="my_mail_send">Etheriq\LessonBundle\Service\MyMailSender</parameter>
+
     </parameters>
 
     <services>
@@ -33,6 +36,12 @@
             <argument>%my_finder.depth%</argument>
             <argument>%my_finder.size%</argument>
             <argument>%my_finder.inDir%</argument>
+        </service>
+
+        <service id="myMailSend" class="%my_mail_send%">
+            <call method="initMailer">
+                <argument type="service" id="swiftmailer.mailer" />
+            </call>
         </service>
     </services>
 

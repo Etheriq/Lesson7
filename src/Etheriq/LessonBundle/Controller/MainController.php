@@ -69,17 +69,19 @@ class MainController extends Controller
         $post = $request->request->all();
 
         if ($post) {
-        $message = \Swift_Message::newInstance()
-            ->setSubject(trim($post['sentSubject']))
-            ->setFrom('nobody@example.com')
-            ->setTo(trim($post['sentTo']))
-            ->setBody(trim($post['bodyMessage']));
+            $settings['sendTo'] = trim($post['sentTo']);
+            $settings['sendFrom'] = 'nobody@example.com';
+            $settings['subjectMessage'] = trim($post['sentSubject']);
+            $settings['textMessage'] = trim($post['bodyMessage']);
 
-        $this->get('mailer')->send($message);
+            $myMailer = $this->container->get('myMailSend');
+            $myMailer->configureMailMessage($settings);
+            $myMailer->sendMessage();
 
             return $this->render('EtheriqLessonBundle:Pages:mySendMailResult.html.twig', array(
                 'status' => 1,
-                'mailTo' => $post['sentTo']
+                'mailTo' => $myMailer->getSendTo(),
+                'subject' => $myMailer->getSubjuctMessage()
             ));
         } else {
 

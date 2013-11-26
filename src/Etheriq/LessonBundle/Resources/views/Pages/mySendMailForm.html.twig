@@ -6,19 +6,22 @@
 
 {% block content %}
 
-    <div class="well">
+    <div class="well" xmlns="http://www.w3.org/1999/html">
         <div class="row">
             <div class="col-md-offset-4 col-md-4">
                 <center><h4>Форма отправки e-mail</h4></center>
                 <form name="mail_sent" action="{{ path('etheriq_service4') }}" method="post" role="form">
                     <div class="form-group">
-                        <input type="text" name="sentTo" placeholder="enter e-mail address" class="form-control">
+                        <label for="inpEmail">Email address</label>
+                        <input type="text" id="inpEmail" name="sentTo" placeholder="enter e-mail address" class="form-control">
                     </div>
                    <div class="form-group">
-                        <input type="text" name="sentSubject" placeholder="enter e-mail subject" class="form-control">
+                        <label for="inpSubject">Email subject</label>
+                        <input type="text" id="inpSubject" name="sentSubject" placeholder="enter e-mail subject" class="form-control">
                     </div>
                     <div class="form-group">
-                        <textarea rows="7" placeholder="enter text massage" class="form-control" name="bodyMessage"></textarea>
+                        <label for="textMes">Email body</label>
+                        <textarea id="textMes" rows="7" placeholder="enter text massage" class="form-control" name="bodyMessage"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-md-offset-4 col-md-4 form-group">
